@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <title>Hepantimate | Assessment</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("assess");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Liver_Assessment.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+   }</script>
+    <style>
+        body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    font-family: sans-serif;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.container {
+    max-width: 960px;
+}
+
+.pricing-header {
+    max-width: 700px;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.themed-container {
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 123, 255, .15);
+    border: 1px solid rgba(0, 123, 255, .2);
+}
+    </style>
+</head>
+    <body>
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="/dashboard"><b>Hepantimate</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disindex">Disease Info</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/liver">Liver Disease</a>
+                    </li>
+
+                    <li class="nav-item">
+		                <a class="nav-link" href="/logout">Logout</a>
+		            </li>
+                    </ul>
+                </div>
+            </nav>
+
+</header>
+    <br/>
+    <br/>
+    <div id="assess">
+    <div class="mx-auto text-center">
+        <h1 class="display-15">Prediction Result</h1>
+
+    </div>
+    <div class="container themed-container"><h3 style="text-align: center;">{{prediction_text}}</h3></div>
+    <div class="mx-auto text-center">
+        <h1 class="display-15">Patient Medical Report</h1>
+    </div>
+    <div class="container themed-container"><h3 style="text-align: center;">
+        <p>Total Bilirubin : {{li[0]}} mg/dL</p>
+        <p>Direct Bilirubin : {{li[1]}} mg/dL</p>
+        <p>Alkaline Phosphotase : {{li[2]}} U/L</p>
+        <p>Alamine Aminotransferase : {{li[3]}} U/L</p>
+        <p>Total Protiens : {{li[4]}} g/dL</p>
+        <p>Albumin : {{li[5]}} g/dL</p>
+        <p>Albumin and Globulin Ratio : {{li[6]}} g/dL</p>
+    </h3>
+    </div>
+     <p style="text-align: center;">Click <a href="/">here</a> to learn more about Liver Disease</p>
+<p style="text-align: center;"><b>This is a Computer Generated Report</b> </p>
+    </div>
+    <br/>
+
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" id="download">Download</button>
+</body>
+</html>
